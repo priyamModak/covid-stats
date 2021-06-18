@@ -26,6 +26,14 @@
 .theme-bg {
   background-color: #9AD9DB;
 }
+.cards {
+  width: 15vw !important;
+}
+.cards-section {
+  margin-top: 4vw !important;
+  display: flex !important;
+  justify-content: center !important;
+}
 .App-link {
   color: #61dafb;
 }
