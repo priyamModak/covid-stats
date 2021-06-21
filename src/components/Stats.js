@@ -21,27 +21,27 @@ const Stats = ({selectedCountry}) => {
         <div style={{ minHeight: "78vh" }}>
             <div className="row cards-section">
                 <div className="col-md-3 cards">
-                    <Card body inverse style={{ backgroundColor: "rgb(255,134,159)" }}>
+                    <Card body style={{ borderBottom: "solid", borderBottomColor: "red" }}>
                         <CardTitle tag="h5">Confirmed</CardTitle>
-                        <CardText>{details.cases}</CardText>
+                        <CardText>{parseInt(details.cases).toLocaleString()}</CardText>
                     </Card>
                 </div>
                 <div className="col-md-3 cards">
-                    <Card body inverse style={{ backgroundColor: "rgb(135 165 255)" }}>
+                    <Card body style={{ borderBottom: "solid", borderBottomColor: "rgb(135 165 255)" }}>
                         <CardTitle tag="h5">Active</CardTitle>
-                        <CardText>{details.active}</CardText>
+                        <CardText>{parseInt(details.active).toLocaleString()}</CardText>
                     </Card>
                 </div>
                 <div className="col-md-3 cards">
-                    <Card body inverse style={{ backgroundColor: "rgb(78 255 118)" }}>
+                    <Card body style={{ borderBottom: "solid", borderBottomColor: "rgb(78 255 118)" }}>
                         <CardTitle tag="h5">Recovered</CardTitle>
-                        <CardText>{details.recovered}</CardText>
+                        <CardText>{parseInt(details.recovered).toLocaleString()}</CardText>
                     </Card>
                 </div>
                 <div className="col-md-3 cards">
-                    <Card body inverse style={{ backgroundColor: "rgb(175 175 175)" }}>
+                    <Card body style={{ borderBottom: "solid", borderBottomColor: "rgb(175 175 175)" }}>
                         <CardTitle tag="h5">Deceased</CardTitle>
-                        <CardText>{details.deaths}</CardText>
+                        <CardText>{parseInt(details.deaths).toLocaleString()}</CardText>
                     </Card>
                 </div>
             </div>

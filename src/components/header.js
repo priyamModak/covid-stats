@@ -1,18 +1,20 @@
 import { useEffect, useState } from 'react';
-import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Navbar, NavbarBrand, UncontrolledDropdown } from 'reactstrap';
+import { DropdownItem, DropdownMenu, DropdownToggle, Navbar, NavbarBrand, UncontrolledDropdown } from 'reactstrap';
 import Axios from "axios";
 
 const Header = () => {
 
-    const [countries, setCountries] = useState([]);
-
+    const [allCountries, setAllCountries] = useState([]);
+    
     var getAllCountries = async () => {
 
         const countryApi = await Axios.get("https://restcountries.eu/rest/v2/all");
-        const list = countryApi.data;
+        let list = countryApi.data;
         console.log(list);
-        setCountries(...countries, ...list);
-        console.log(countries);
+        for (const eachItem of list) {
+            setAllCountries([...allCountries, eachItem]);
+        }
+        console.log(allCountries);
     }
 
     useEffect(() => {
@@ -25,17 +27,17 @@ const Header = () => {
                 <NavbarBrand href="/">
                     <h3 className="text-muted">Covid Statistics</h3>
                 </NavbarBrand>
-                <UncontrolledDropdown>
+                <UncontrolledDropdown style={{right: "2vw", position: "absolute"}}>
                     <DropdownToggle caret>
                         Country
                     </DropdownToggle>
-                    {/* <DropdownMenu>
+                    <DropdownMenu>
                         {
-                            countries.map(item => {
+                            allCountries.map(item => {
                                 <DropdownItem key={item.area}>{item.name}</DropdownItem>
                             })
                         }
-                    </DropdownMenu> */}
+                    </DropdownMenu>
                 </UncontrolledDropdown>
             </Navbar>
         </div>
